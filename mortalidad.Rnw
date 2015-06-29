@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{pst-eucl,pstricks,pstricks-add}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[spanish,activeacute]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{url}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{lmodern}
+\usepackage{setspace}
+
+\onehalfspace %para espacio y medio
+\newcommand{\code}[1]{\fcolorbox{blue!80}{gray!10}{#1}}
+\parindent=0mm
+
+\begin{document}
+
+\begin{center}
+{\bf\Large Desaceleración de la mortalidad en el Ecuador}
+\end{center}
+
+
+\vspace{0.3cm}\hrule\vspace{0.5cm}
+{\raggedright \bf\large Resumen}\\
+\vspace{0.1cm}
+
+En este trabajo se estudia el fenómeno de desaceleración de la mortalidad en adultos mayores de la población ecuatoriana, el cual es de gran interés en el campo actuarial, ya que en la actualidad nuestro país atraviesa por un proceso de transición demográfica con el que se espera que dentro de aproximadamente $30$ años la población de adultos mayores en el Ecuador aumente considerablemente.\newline 
+
+La información demográfica utilizada corresponde a tablas de mortalidad generadas a partir de datos obtenidos del
+Instituto Nacional de Estadísticas y Censos (INEC).\newline
+\hrule
+
+\begin{multicols}{2}
+\section{Introducción}
+El número de habitantes en Ecuador ha ido incrementándose paulatinamente al punto de triplicarse en los últimos $40$ años. A su vez, se ha observado que la esperanza de vida se ha incrementado, tal como se muestra en las siguientes pirámides poblacionales:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.50\paperwidth]{piramides_poblacion.pdf} 
+\caption{Población Ecuatoriana para los años $1950$, $2000$ y $2050$}
+\label{fig:01}
+\end{figure}
+
+A este cambio en la estructura poblacional se le conoce como \emph{transición demográfica}, el mismo que consiste en un proceso donde la estructura de la población pasa de altas a bajas tasas de mortalidad y natalidad por lo que aparece una población mas envejecida.\newline
+
+
+\section{Definiciones importantes}
+Para el estudio de el fenómeno de desaceleración de la mortalidad se utilizó la función fuerza de mortalidad que se define de la siguiente manera:
+\subsection{Fuerza de mortalidad}
+La fuerza de mortalidad de la función de supervivencia $S(x)$ se define como:
+\begin{equation}
+\mu(x)=\frac{d}{dx}lnS(x)=\frac{f_x(x)}{S_x(x)}
+\end{equation}
+Esta función representa la tasa instantánea de mortalidad para un individuo que sobrevive al tiempo $x$. Para este trabajo el insumo que se utilizó fueron tablas de vida de la población ecuatoriana en donde esta función no viene calculada, por lo que se estimó los valores aproximados de la función fuerza de mortalidad utilizando la siguiente expresión:
+\begin{equation}
+\mu(x)=-ln(1-q_x)
+\end{equation}
+donde $q_x$ es  la probabilidad de que una persona con edad $x$ fallezca dentro de un año.
+
+\section{Algunos modelos utilizados}
+Para este trabajo se utilizó algunas funciones típicas en el análisis de supervivencia las cuales las mostramos en la siguiente tabla:
+
+
+\end{multicols}
+
+\end{document}
