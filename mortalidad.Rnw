@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 %\usepackage[latin1]{inputenc}
 \usepackage[spanish,activeacute]{babel}
-\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage[a4paper,margin=2.3cm]{geometry}
 \usepackage{times}
 \usepackage[T1]{fontenc}
 \usepackage{titlesec}
@@ -43,16 +43,17 @@ Instituto Nacional de Estadísticas y Censos (INEC).\newline
 El número de habitantes en Ecuador ha ido incrementándose paulatinamente al punto de triplicarse en los últimos $40$ años. A su vez, se ha observado que la esperanza de vida se ha incrementado, tal como se muestra en las siguientes pirámides poblacionales:
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.50\paperwidth]{piramides_poblacion.pdf} 
+\includegraphics[width=0.37\paperwidth]{piramides_poblacion.pdf} 
 \caption{Población Ecuatoriana para los años $1950$, $2000$ y $2050$}
 \label{fig:01}
 \end{figure}
 
 A este cambio en la estructura poblacional se le conoce como \emph{transición demográfica}, el mismo que consiste en un proceso donde la estructura de la población pasa de altas a bajas tasas de mortalidad y natalidad por lo que aparece una población mas envejecida.\newline
 
+A su vez, conforme se da este proceso, se genera un ambiente favorable para el desarrollo económico de la población, lo que se conoce como el \emph{bono demográfico} que se define como un periodo de tiempo en el cual la población que pertenece al grupo en capacidad de trabajar se incrementa siendo mayor que los otros grupos de edad.
 
 \section{Definiciones importantes}
-Para el estudio de el fenómeno de desaceleración de la mortalidad se utilizó la función fuerza de mortalidad que se define de la siguiente manera:
+Para el estudio de el fenómeno de desaceleración de la mortalidad se utilizó la función fuerza de mortalidad.
 \subsection{Fuerza de mortalidad}
 La fuerza de mortalidad de la función de supervivencia $S(x)$ se define como:
 \begin{equation}
@@ -66,6 +67,49 @@ donde $q_x$ es  la probabilidad de que una persona con edad $x$ fallezca dentro 
 
 \section{Algunos modelos utilizados}
 Para este trabajo se utilizó algunas funciones típicas en el análisis de supervivencia las cuales las mostramos en la siguiente tabla:
+\begin{center}
+\fontsize{7.5pt}{7.5pt} \selectfont
+    \begin{tabular}{ | l | l |}\hline
+    {\bf Modelo} & {\bf Función fuerza de mortalidad} \\ \hline
+    Gompertz & $A e^{\frac{x}{\alpha}}$\\ \hline
+    Weibull & $\alpha \lambda(\lambda x)^{\alpha-1}$\\ \hline
+    Frailty logístico & $\frac{Ae^{\frac{x}{\alpha}}}{1+sA\alpha(e^{\frac{x}{\alpha}}-1)}$\\ \hline
+    Logístico & $k\frac{1+Ae^{\alpha x}}{1+Be^{\alpha x}}$\\ \hline
+    Gompertz logístico & $\mu(x)=k\frac{1+Ae^{\alpha x}}{1+Be^{\alpha x}}$\\ \hline
+    $\mu_\Gamma(x)$&$\mu_{\Gamma}(x)=a+\frac{c^{b^*}d}{x^{1+db^*}}exp(-cx^{-d})$\\ \hline
+    \end{tabular}
+\end{center}
+
+\section{Metodología}
+Para determinar la edad en la que se presenta el fenómeno de desaceleración de la mortalidad se utilizó los siguientes métodos, la tasa de envejecimiento de la tabla de vida LAR (Life Table Aging Rate) y además  se consideró la primera y segunda derivadas de la función fuerza de mortalidad.\\ El insumo necesario para estimar las edades en las cuales se produce el fenómeno de desaceleración de la mortalidad, fueron tablas de vida a partir de estas, se estimó los valores para la función fuerza de mortalidad utilizando el estimador:
+\begin{equation}
+\mu(x)=-ln(1-q_x)
+\end{equation}
+Se utilizó el método de mínimos cuadrados no lineales, que consiste en que teniedo $n$ valores $x_1,x_2,..,x_n$ con sus respectivos valores respuesta y una función no lineal $f$ que depende de ciertos parámetros desconocidos. Tales parámetros serán determinados minimizando la suma de residuos al cuadrado dada por la siguiente expresión:
+\begin{equation}
+RSS(\beta)=\displaystyle\sum_{i=1}^{n} y_i-f(x_i,\beta))^2
+\end{equation}
+Dado que la función es no lineal, el problema se convierte en un problema de optimización numérica, mediante procesos iterativos que aproximan los valores óptimos del parámetro paso a paso. Se utilizaró el algoritmo de Gauss Newton, que consiste en aproximaciones lineales a la función no lineal en cada paso.
+
+\section{Tasa de Envejecimiento de la Tabla de Vida LAR}
+Una  de las formas más utilizadas para detectar patrones de aceleración o desaceleración en la mortalidad, es la tasa específica de mortalidad por edad, también conocida como tasa de envejecimiento calculada a partir de la tabla de vida o como lo indican sus siglas en inglés (LAR Life-Table Aging Rate). \\ 
+Esta medida fue propuesta por Horiuchi and Coale en $1990$ en su artículo.\\ 
+Este valor se define como la derivada del logaritmo natural de la función fuerza de mortalidad con respecto a la edad:
+\begin{equation}\label{LAR}
+k(x)=\frac{1}{\mu(x)}\left(\frac{d}{dx}\mu(x)\right)=\frac{d}{dx}ln(\mu(x))=\frac{\mu'(x)}{\mu(x)}
+\end{equation}
+
+donde $\mu(x)$ es la fuerza de mortalidad o tasa de mortalidad instantánea a la edad $x$ para la población en estudio.\\
+Así, el comienzo de la desaceleración de la mortalidad, será el punto en el cual $u'/u$ disminuya.\\
+El valor $LAR$, como lo llamaremos de ahora en adelante, mide el incremento de la mortalidad con respecto a la edad. Así una disminución de $LAR$ nos indica desaceleración de la mortalidad, mientras que, un  aumento de su valor nos  indica aceleración de la misma.\\ \\
+Utilizando el valor de $LAR$ podemos ver que el modelo de Gompertz no es adecuado para detectar patrones de desaceleración de la mortalidad, basta que utilicemos la definición anterior con el modelo de Gompertz. Esto nos daría como resultado lo siguiente:
+\begin{align}
+k(x)&=\frac{\mu'(x)}{\mu(x)}\\
+    &=\frac{\frac{A}{\alpha}e^{\frac{x}{\alpha}}}{Ae^\frac{x}{\alpha}}\nonumber\\
+		&=\frac{1}{\alpha}\nonumber
+\end{align}
+Por lo tanto $k(x)=\frac{1}{\alpha}$,  es decir el modelo de Gompertz, supone que la fuerza de mortalidad varía a una tasa constante para todas las edades. Lo cual contradice la suposición de que la fuerza de mortalidad aumenta pero a un ritmo más lento, es decir el valor de $k(x)$ disminuye en las edades avanzadas, por lo que no sería constante.\\
+
 
 
 \end{multicols}
