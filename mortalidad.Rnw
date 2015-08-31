@@ -28,8 +28,8 @@
 {Dr. Luis Horna*; Ing. Boris Polanco**; Ing. Diego Huaraca***}\\
 \emph{\scriptsize *Escuela Politécnica Nacional, Departamento de Matemática, Quito, Ecuador}\\
 {\scriptsize \url{e-mail: luis.horna@epn.edu.ec}}\\
-\emph{\scriptsize *Escuela Politécnica Nacional, Departamento de Matemática, Quito, Ecuador}\\
-{\scriptsize \url{e-mail: diego.huaraca@epn.edu.ec}}\\
+\emph{\scriptsize *Escuela Politécnica Nacional, Facultad de Ciencias, Quito, Ecuador}\\
+{\scriptsize \url{e-mail: diego.huaracas@epn.edu.ec}}\\
 \emph{\scriptsize **Actuaria Consultores, Quito, Ecuador}\\
 {\scriptsize \url{e-mail: boriscout@hotmail.com}}
 \end{center}
@@ -39,14 +39,14 @@
 {\raggedright \bf\large Resumen}\\
 \vspace{0.1cm}
 
-Se estudia el fenómeno de desaceleración de la mortalidad en adultos mayores de la población ecuatoriana, el cual es de gran interés en el campo actuarial debido que el país actualmente atraviesa por un proceso de transición demográfica con el que se espera que dentro de aproximadamente $30$ años la población de adultos mayores aumente considerablemente. La información demográfica utilizada corresponde a tablas de mortalidad generadas a partir de datos obtenidos del Instituto Nacional de Estadísticas y Censos (INEC).\newline
+Se estudia el fenómeno de desaceleración de la mortalidad en adultos mayores de la población ecuatoriana, el cual es de gran interés en el campo actuarial debido a que el país actualmente atraviesa por un proceso de transición demográfica con el que se espera que dentro de aproximadamente $30$ años la población de adultos mayores aumente considerablemente. La información demográfica utilizada corresponde a tablas de mortalidad generadas a partir de datos obtenidos del Instituto Nacional de Estadística y Censos (INEC).\newline
 
 {\bf Palabras claves:} Tablas de mortalidad, desaceleración, transición demográfica.\newline
 \hrule
 
 \begin{multicols}{2}
 \section{Introducción}
-El número de habitantes en Ecuador se ha ido incrementando paulatinamente al punto de triplicarse en los últimos $40$ años. Además, se ha observado que la esperanza de vida se ha incrementado, tal como se muestra en las siguientes pirámides poblacionales:
+El número de habitantes en el Ecuador se ha ido incrementando paulatinamente al punto de triplicarse en los últimos $40$ años. Además, se observa que la esperanza de vida crece, tal como se muestra en las siguientes pirámides poblacionales:
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.37\paperwidth]{piramides_poblacion.pdf} 
@@ -59,11 +59,11 @@ Al cambio en la estructura poblacional se le conoce como \emph{transición demog
 A su vez, conforme se da este proceso, se genera un ambiente favorable para el desarrollo económico de la población, lo que se conoce como el \emph{bono demográfico} que se define como un periodo de tiempo en el cual la población que pertenece al grupo en capacidad de trabajar se incrementa siendo mayor que los otros grupos de edad.
 
 \section{Fuerza de mortalidad}
-Para el estudio de el fenómeno de desaceleración, se emplea la fuerza de mortalidad de la función de supervivencia $S(x)$ definida como:
+Para el estudio del fenómeno de desaceleración, se emplea la fuerza de mortalidad de la función de supervivencia $S(x)$ definida como:
 \begin{equation}
 \mu(x)=\frac{d}{dx}lnS(x)=\frac{f_x(x)}{S_x(x)}
 \end{equation}
-Esta función representa la tasa instantánea de mortalidad para un individuo que sobrevive a la edad $x$. Debido que las tablas de vida empleadas para el estudio no contaban con dicho valor de esta función, se estimó los valores aproximados utilizando la siguiente expresión:
+Esta función representa la tasa instantánea de mortalidad para un individuo que sobrevive a la edad $x$. Debido que las tablas de vida empleadas para el estudio no contaban con dicho valor de esta función, se estimaron los valores aproximados utilizando la siguiente expresión:
 \begin{equation}{
 \label{ecu:001}
 \mu(x)=-ln(1-q_x)}
@@ -71,7 +71,7 @@ Esta función representa la tasa instantánea de mortalidad para un individuo qu
 donde $q_x$ es la probabilidad de que una persona con edad $x$ fallezca dentro de un año.
 
 \section{Algunos modelos utilizados}
-Para ajustar la función fuerza de mortalidad se emplean algunas funciones típicas del análisis de supervivencia las cuales se muestran a continuación:
+Para ajustar la función fuerza de mortalidad se emplean algunas funciones típicas del análisis de supervivencia, las cuales se muestran a continuación:
 \begin{table}[H]
 \centering
 \fontsize{8pt}{7.5pt} \selectfont
@@ -88,7 +88,7 @@ Para ajustar la función fuerza de mortalidad se emplean algunas funciones típi
 \end{table}
 
 \section{Metodología}
-Para determinar la edad en la que se presenta el fenómeno de desaceleración de la mortalidad se utilizó: la tasa de envejecimiento de la tabla de vida, y además, la primera y segunda derivada de la función fuerza de mortalidad.
+Para determinar la edad en la que se presenta el fenómeno de desaceleración de la mortalidad se utilizó: la tasa de envejecimiento de la tabla de vida, y además, la primera y segunda derivadas de la función fuerza de mortalidad.
 
 %Se utilizó el método de mínimos cuadrados no lineales, que consiste en que teniendo $n$ valores $x_1,x_2,..,x_n$ con sus respectivos valores respuesta y una función no lineal $f$ que depende de ciertos parámetros desconocidos. Tales parámetros serán determinados minimizando la suma de residuos al cuadrado dada por la siguiente expresión:
 %\begin{equation}
@@ -106,7 +106,7 @@ k(x)=\frac{1}{\mu(x)}\left(\frac{d}{dx}\mu(x)\right)=\frac{d}{dx}ln(\mu(x))=\fra
 donde $\mu(x)$ es la fuerza de mortalidad a la edad $x$ para la población en estudio.\\
 
 Así, el comienzo de la desaceleración de la mortalidad, será el punto en el cual $u'/u$ disminuya.\\
-El valor $LAR$, como lo llamaremos de ahora en adelante, mide el incremento de la mortalidad con respecto a la edad. Así una disminución de $LAR$ nos indica desaceleración de la mortalidad, mientras que, un aumento de su valor nos indica aceleración de la misma.
+El valor $LAR$, como lo llamaremos de ahora en adelante, mide el incremento de la mortalidad con respecto a la edad. Así, una disminución de $LAR$ nos indica desaceleración de la mortalidad, mientras que, un aumento de su valor nos indica aceleración de la misma.
 
 \section{Ajuste de datos}
 Ahora describiremos el ajuste realizado con datos de la población ecuatoriana que fueron obtenidos del INEC.\\ Examinamos la fuerza de mortalidad obtenida con el estimador (\ref{ecu:001}) para el período $1991-2013$ para hombres y mujeres.
@@ -116,7 +116,7 @@ Ahora describiremos el ajuste realizado con datos de la población ecuatoriana q
 	\caption{Fuerza de mortalidad} 
 	\label{fig:002}
 \end{figure}
-Para los hombres la tasa de mortalidad al inicio del periodo se incrementa alrededor de los $85$ años de edad, posteriormente al final del periodo esto se da a los $90$ años aproximadamente. En el caso de las mujeres, la fuerza de mortalidad se da a partir de los $87$ años al inicio del periodo y al final de periodo se encuentra sobre los $93$ años.\newline
+Para los hombres la tasa de mortalidad al inicio del periodo se incrementa alrededor de los $85$ años de edad, posteriormente al final del periodo esto se da a los $90$ años, aproximadamente. En el caso de las mujeres, la fuerza de mortalidad se da a partir de los $87$ años al inicio del periodo y al final de periodo se encuentra sobre los $93$ años.\newline
 
 Los ajustes tanto para hombres y mujeres a las diferentes funciones:
 \begin{figure}[H]
@@ -158,18 +158,18 @@ $\mu_\gamma$ & -163.5509 & -153.7744\\ \hline
 \caption{Criterio de información - Mujeres}
 \end{table}
 
-Evidenciamos que de acuerdo a los criterios de información de Akaike y Bayesiano el modelo logístico resulta ser el más adecuado tanto para hombres como para mujeres. Por tal razón, calculamos las funciones de velocidad y aceleración de la mortalidad para obtener las edades en las cuales inicia el fenómeno de la desaceleración.
+Evidenciamos que de acuerdo a los criterios de información de Akaike (AIC) y Bayesiano (BIC) el modelo logístico resulta ser el más adecuado tanto para hombres como para mujeres. Por tal razón, calculamos las funciones de velocidad y aceleración de la mortalidad para obtener las edades en las cuales inicia el fenómeno de la desaceleración.
 
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.85\linewidth]{vya_logistico_hombres.pdf}
-	\caption{Velocidad $\&$ aceleración - Hombres.}
+	\caption{Velocidad y aceleración - Hombres.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.85\linewidth]{tvya_logistico_mujeres_1991_trio.pdf}
-	\caption{Velocidad $\&$ aceleración - Mujeres.}
+	\caption{Velocidad y aceleración - Mujeres.}
 \end{figure}
  
 Para estimar la edad en la cual inicia la desaceleración de la mortalidad considerando la metodología $LAR$ antes descrita, realizamos lo siguiente:
@@ -182,14 +182,14 @@ Los resultados tanto para hombres como para mujeres fueron los siguientes:
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.95\linewidth]{LAR_1991.pdf}
-	\caption{Tasa de envejecimiento - Hombres $\&$ Mujeres} 
+	\caption{Tasa de envejecimiento - Hombres y Mujeres} 
 \end{figure}
 
 \section{Conclusiones}
 \begin{enumerate}
-      \item El fenómeno de desaceleración de la mortalidad en las edades avanzadas, es el resultado del proceso de transición demográfica por el cual esta atravesando el país, y ha influído por ejemplo en los avances de la medicina, los cuales han hecho que la esperanza de vida de la población aumente, dando como resultado que la probabilidad de muerte en la vejez disminuya.
+      \item El fenómeno de desaceleración de la mortalidad en las edades avanzadas, es el resultado del proceso de transición demográfica por el cual está atravesando el país, y ha influido por ejemplo los avances de la medicina, los cuales han hecho que la esperanza de vida de la población aumente, dando como resultado que la probabilidad de muerte en la vejez disminuya.
       \item El uso de modelos logísticos para la estimación de la función fuerza de mortalidad resultó adecuado para el estudio de la mortalidad en edades avanzadas. La ventaja al usar este tipo de modelos es que incluyen parámetros que no dependen de la edad.
-      \item La diferencia de $3$ años en la edad de inicio de desaceleración de la mortalidad entre hombres y mujeres, concuerda con otros estudios realizados, pues generalmente la esperanza de vida de las mujeres es mayor que de los hombres, de donde a su vez la edad de inicio de la desaceleración de la mortalidad será mayor para las mujeres que para los hombres.
+      \item La diferencia de $3$ años en la edad de inicio de desaceleración de la mortalidad entre hombres y mujeres, concuerda con otros estudios realizados, pues generalmente la esperanza de vida de las mujeres es mayor que la de los hombres, de donde a su vez la edad de inicio de la desaceleración de la mortalidad será mayor para las mujeres que para los hombres.
 \end{enumerate}
 
 %\section{Bibliografía}
